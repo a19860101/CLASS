@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var currentPosition = 0;
+			var photoHeight = 500;
+			var photo = $(".photo");
+			var numberOfPhotos = photo.length;
+			//var sliderInterval;
+			var timeout = 3000;
+			var speed = 600;
+			//console.log(numberOfPhotos)
+			$("#wrapper").css("height",photoHeight*numberOfPhotos);
+
+			function move(){
+				$("#wrapper").animate({
+					"marginTop":photoHeight*(-currentPosition)
+				},speed);
+			}
+			function cycle(){
+				if(currentPosition==numberOfPhotos-1){
+					currentPosition=0;
+				}else{
+					currentPosition++;
+				}
+				move();
+			}
+			setInterval(cycle,timeout);
+		})
+	</script>
+	<style>
+		#slider {
+			width: 500px;
+			height: 500px;
+			overflow: hidden;
+		}
+		#slider img {
+			width: 500px;
+			height: 500px;
+		}
+		#slider .photo {
+			/*float: left;*/
+			width: 500px;
+			height: 500px;
+		}
+	</style>
+</head>
+<body>
+	<div id="slider">
+		<div id="wrapper">
+			<div class="photo">
+				<img src="images/01.jpg">
+			</div>
+			<div class="photo">
+				<img src="images/04.jpg">
+			</div>
+			<div class="photo">
+				<img src="images/02.jpg">
+			</div>
+			<div class="photo">
+				<img src="images/08.jpg">
+			</div>
+		</div> 
+	</div>
+</body>
+</html>
