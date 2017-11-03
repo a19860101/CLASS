@@ -11,7 +11,7 @@
             height: 300px;
             overflow: hidden;
         }
-        .slider img {
+        .slider .photo{
             position: absolute;
             display: none;
         }
@@ -26,7 +26,7 @@
             //var q = $(".slider").find("img").eq(3).attr("src");
             //console.log(q);
             var currentPosition = 0;
-            var photos = $(".slider").find("img");
+            var photos = $(".photo");
             var numberOfPhotos = photos.length;
 
             //animate css
@@ -56,10 +56,18 @@
 
 <body>
     <div class="slider">
-        <img src="images/01.jpg" alt="">
-        <img src="images/02.jpg" alt="">
-        <img src="images/03.jpg" alt="">
-        <img src="images/04.jpg" alt="">
+        <div class="photo">
+            <img src="images/01.jpg" alt="">
+        </div>
+        <div class="photo">
+            <img src="images/02.jpg" alt="">
+        </div>
+        <div class="photo">
+            <img src="images/03.jpg" alt="">
+        </div>
+        <div class="photo">
+            <img src="images/04.jpg" alt="">
+        </div>
     </div>
 </body>
 
