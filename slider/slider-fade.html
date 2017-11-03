@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Slider</title>
+    <style>
+        .slider {
+            position: relative;
+            width: 400px;
+            height: 300px;
+            overflow: hidden;
+        }
+        .slider img {
+            position: absolute;
+            display: none;
+        }
+        img {
+            width: 100%;
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        $(function() {
+            //var q = $(".slider").find("img").eq(3).attr("src");
+            //console.log(q);
+            var currentPosition = 0;
+            var photos = $(".slider").find("img");
+            var numberOfPhotos = photos.length;
+
+            //animate css
+            photos.addClass("animated");
+            var animateCss = "fadeInLeft";
+
+            photos.eq(0).show();
+
+            function move() {
+                var nextPhoto = (currentPosition + 1) % numberOfPhotos;
+                photos.eq(nextPhoto).fadeIn(1200);
+                photos.eq(currentPosition).fadeOut(1200);
+                currentPosition = nextPhoto;
+            }
+
+            function move2() {
+                var nextPhoto = (currentPosition + 1) % numberOfPhotos;
+                photos.eq(nextPhoto).fadeIn().addClass(animateCss);
+                photos.eq(currentPosition).fadeOut(1500).removeClass(animateCss);
+                currentPosition = nextPhoto;
+            }
+            setInterval(move, 3000);
+        })
+
+    </script>
+</head>
+
+<body>
+    <div class="slider">
+        <img src="images/01.jpg" alt="">
+        <img src="images/02.jpg" alt="">
+        <img src="images/03.jpg" alt="">
+        <img src="images/04.jpg" alt="">
+    </div>
+</body>
+
+</html>
