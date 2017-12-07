@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .container {
+            width: 600px;
+            margin: auto;
+            font-size: 0;
+        }
+        
+        #newList {
+            padding: 15px 10px;
+            width: 480px;
+            border: 2px solid #eee;
+            background-color: #eee;
+            outline: 0;
+            font-size: 16px;
+        }
+        
+        #bt {
+            width: 120px;
+            background-color: #ccc;
+            padding: 15px 10px;
+            border: 0;
+            outline: 0;
+            border-radius: 0;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 50px;
+        }
+        
+        #todo {
+            list-style: none;
+            font-size: 16px;
+        }
+        
+        #todo li {
+            background-color: #61c9ff;
+            padding: 15px 10px;
+            border-bottom: 2px solid #008dd4;
+            position: relative;
+            width: 600px;
+        }
+        #todo .checked::before {
+            content:"";
+/*            position: absolute;*/
+            display: inline-block;
+            width: 15px;
+            height: 10px;
+            margin-right: 10px;
+            border-color: #ccc;
+/*            border-width: 2px;*/
+            border-width: 0 0 2px 2px;
+            border-style: solid;
+            transform: rotate(-45deg);
+        }
+        .close {
+            position: absolute;
+            display: block;
+            cursor: pointer;
+            padding: 15px;
+            right: 0;
+            top: 0;
+        }
+        
+        .close:hover {
+            background-color: #00517b;
+            color: #fff;
+        }
+        #todo .checked {
+            background-color: #002436;
+            text-decoration: line-through;
+            color: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <input type="text" id="newList">
+        <button id="bt">新增事項</button>
+        <ul id="todo"></ul>
+    </div>
+    <script>
+        function newList() {
+            var newList = document.getElementById("newList").value;
+            var todo = document.getElementById("todo");
+            var li = document.createElement("li");
+            var t = document.createTextNode(newList);
+            if (newList == "") {
+                alert("請輸入內容");
+            } else {
+                li.appendChild(t);
+                todo.appendChild(li);
+                document.getElementById("newList").value = "";
+
+                var span = document.createElement("span");
+                var x = document.createTextNode("刪除");
+                span.className = "close";
+                span.appendChild(x);
+                li.appendChild(span);
+                var closeBt = document.getElementsByClassName("close");
+                console.log(closeBt);
+                var i;
+                for (i = 0; i < closeBt.length; i++) {
+                    closeBt[i].onclick = function() {
+                        console.log(this);
+                        var el = this.parentElement;
+                        el.remove();
+                    }
+                }
+            }
+        }
+        
+        var list = document.querySelector('ul');
+        list.addEventListener('click', function(ev) {
+            console.log(ev);
+            if (ev.target.tagName === 'LI') {
+                console.log(ev.target)
+                ev.target.classList.toggle('checked');
+            }
+        });
+        
+        let bt = document.getElementById("bt");
+        bt.addEventListener("click", function() {
+            newList();
+        });
+
+    </script>
+</body>
+
+</html>

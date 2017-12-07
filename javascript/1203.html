@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .box {
+/*           width: 300px;*/
+/*            height: 200px;*/
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <button id="bt">click</button>
+    <div id="output"></div>
+    <script>
+       function Product(name,price,discount){
+           this.name = name;
+           this.price = price;
+           this.discount = discount;
+           
+           this.message = function(){
+               return price*discount
+           }
+           
+       }
+        var product1 = new Product("bag",12000,0.85);
+        //alert(product1.message());
+        var p =[
+            {
+                name:"iPhone 7",
+                color:"Black",
+                memory:"32GB",
+                price:"19,900",  
+            },
+            {
+                name:"iPhone 7",
+                color:"Jet Black",
+                memory:"32GB",
+                price:"19,900",  
+            },
+            {
+                name:"iPhone 7",
+                color:"Silver",
+                memory:"32GB",
+                price:"19,900",  
+            },
+            {
+                name:"iPhone 7",
+                color:"Gold",
+                memory:"32GB",
+                price:"19,900",  
+            },
+            {
+                name:"iPhone 7",
+                color:"Rose Gold",
+                memory:"32GB",
+                price:"19,900",  
+            },
+            {
+                name:"iPhone 7",
+                color:"Black",
+                memory:"128GB",
+                price:"24,500",  
+            },
+            {
+                name:"iPhone 7",
+                color:"Jet Black",
+                memory:"128GB",
+                price:"24,500",  
+            },
+            {
+                name:"iPhone 7",
+                color:"Silver",
+                memory:"128GB",
+                price:"24,500",  
+            },
+            {
+                name:"iPhone 7",
+                color:"Gold",
+                memory:"128GB",
+                price:"24,500",  
+            },
+            {
+                name:"iPhone 7",
+                color:"Rose Gold",
+                memory:"128GB",
+                price:"24,500",  
+            },
+        ];
+        
+        for(var i=0;i<p.length;i++){
+            var _div = document.createElement("div");
+            _div.className="box";
+//            console.log(_div);
+            var c = "<div>品項："+p[i].name+"</div>"
+            c += "<div>顏色:"+p[i].color+"</div>"
+            _div.innerHTML = c;
+            document.getElementById("output").appendChild(_div);
+        }
+
+        let bt = document.getElementById("bt");
+        bt.addEventListener("click",function(){
+            alert("監聽事件");
+        })
+        console.log(output)
+    </script>
+</body>
+</html>

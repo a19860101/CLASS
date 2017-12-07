@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang = "zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   <div id="output"></div>
+    <script>
+        var xhr = new XMLHttpRequest();
+        var url = "data.json";
+        xhr.onreadystatechange = function(){
+            if(this.readyState==4 && this.status == 200){
+                console.log("success");
+                var t = this.responseText;
+                var obj = JSON.parse(t);
+//                var obj = JSON.stringify(t);
+                console.log(obj);
+                
+                for(var i = 0;i<obj.length;i++){
+//                    console.log(obj[i].name);
+                   var div = document.createElement("div");
+                    var c = document.createTextNode(obj[i].name);
+                    div.appendChild(c);
+                    document.getElementById("output").appendChild(div);;
+                }
+                
+            }
+        }
+        xhr.open("GET",url,true);
+        xhr.send();
+    </script>
+</body>
+</html>

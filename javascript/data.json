@@ -1,0 +1,22 @@
+[
+    {
+        "name": "PHP學習手冊",
+        "public": "歐萊禮",
+        "price": "580"
+    },
+    {
+        "name": "jQuery高手精技",
+        "public": "旗標",
+        "price": "450"
+    },
+    {
+        "name": "Javascript&jQuery網站互動設計程式進化之道",
+        "public": "碁峯",
+        "price": "780"
+    },
+    {
+        "name": "創意思考的秘密在聯想力",
+        "public": "本視出版",
+        "price": "380"
+    }
+]
