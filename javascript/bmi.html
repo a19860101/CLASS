@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+<body>
+    身高：<input type="text" id="height"><br>
+    體重：<input type="text" id="weight"><br>
+    <button id="cal">計算</button>
+    <div id="output"></div>
+    <script>
+        const BMI = (h,w)=>{
+//            h = document.getElementById("height").value;
+//            w = document.getElementById("weight").value;
+            let bmi = w / Math.pow((h/100),2);
+            
+            document.getElementById("output").textContent = parseInt(bmi);
+        }
+        let cal = document.getElementById("cal");
+        cal.addEventListener("click",()=>{
+            BMI(document.getElementById("height").value,document.getElementById("weight").value)
+        })
+    </script>
+</body>
+</html>
