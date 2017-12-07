@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tabs-頁籤</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        #service {
+            width: 800px;
+            margin: auto;
+        }
+        
+        .tabs {
+            width: 100%;
+            overflow: auto;
+        }
+        
+        .tabs li {
+            float: left;
+            list-style: none;
+        }
+        
+        .tabs a {
+            display: block;
+            padding: 15px 20px;
+            text-decoration: none;
+            background-color: #aaa;
+            color: #000;
+        }
+        .tabs a.active {
+            background-color: #eee;
+        }
+        #contents div{
+            padding: 20px;
+            background-color: #eee;
+            display: none;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $("#contents div").eq(0).show();
+            $(".tabs a").click(function(){
+                var panel = $(this).attr("href");
+                console.log(panel);
+                $("#contents div").hide();
+                $(panel).fadeIn(200);
+                
+                $(".tabs a").removeClass("active");
+                $(this).addClass("active");
+            });
+        })
+    </script>
+</head>
+
+<body>
+    <div id="service">
+        <ul class="tabs">
+            <li><a href="#tab1" class="active">Link-1</a></li>
+            <li><a href="#tab2">Link-2</a></li>
+            <li><a href="#tab3">Link-3</a></li>
+            <li><a href="#tab4">Link-4</a></li>
+        </ul>
+        <div id="contents">
+            <div id="tab1">
+                <h2>Title01</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, eaque, consectetur. Doloribus modi vel id sed, excepturi possimus nihil fugiat impedit. Amet officiis ratione reiciendis nemo, ex soluta excepturi, est sint doloribus vel dolores, molestiae facere rem consequatur minima doloremque!
+                </p>
+            </div>
+            <div id="tab2">
+                <h2>Title02</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque repellat, soluta, aspernatur voluptatem neque incidunt. Delectus dolores, numquam, commodi, fugit quam quidem, vel at veritatis ullam quo neque vero dolore.
+                </p>
+            </div>
+            <div id="tab3">
+                <h2>Title03</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque repellat, soluta, aspernatur voluptatem neque incidunt. Delectus dolores, numquam, commodi, fugit quam quidem, vel at veritatis ullam quo neque vero dolore.
+                </p>
+            </div>
+            <div id="tab4">
+                <h2>Title04</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque repellat, soluta, aspernatur voluptatem neque incidunt. Delectus dolores, numquam, commodi, fugit quam quidem, vel at veritatis ullam quo neque vero dolore.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text"id="score">
+    <button id="bt">CLICK!</button>
+    <div id="output"></div>
+    <script>
+        document.getElementById("bt").onclick = function(){
+            let score = document.getElementById("score").value;
+            let output = document.getElementById("output");
+            console.log(score);
+            
+            if(score>=60){
+                output.textContent = "及格";
+                console.log(output);
+            }else if(isNaN(score)){
+                output.textContent = "請輸入數值";
+                console.log(output);
+            }else if(score==""){
+                output.textContent = "請輸入正確數值";
+                console.log(output);
+            }else{
+                output.textContent = "不及格";
+                console.log(output);
+            }
+        }
+        var x = 100;
+        if(x==100){
+            var y = 0;
+        }
+//        var y = 20;
+        console.log(y);
+    </script>
+</body>
+</html>
