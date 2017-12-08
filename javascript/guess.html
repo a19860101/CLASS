@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>猜數字阿</title>
+</head>
+<body>
+	<input type="text" id="num">
+	<button id="bt" onclick="guess()">CLICK!</button>
+	<div id="output"></div>
+	<script>
+		let answer = Math.round(Math.random()*100);
+		console.log(answer);
+		function guess(){
+			let num = document.getElementById("num").value;
+			let output = document.getElementById("output");
+			if(num!="" && !isNaN(num)){
+				console.log("GOGOGO");
+				// if(num > answer){
+				// 	output.textContent = "小一點";
+				// }else if(num < answer){
+				// 	output.textContent = "大一點";
+				// }else if(num == answer){
+				// 	// output.textContent = "你已經死了!";
+				// 	alert("你已經死了!",location.reload());
+				// }
+				switch(true){
+					case num > answer:
+						output.textContent = "小一點";
+						break;
+					case num < answer:
+						output.textContent = "大一點";
+						break;
+					case num == answer:
+						alert("你已經死了!",location.reload());
+				}
+			}else{
+				console.log("請輸入正確的數值");
+			}
+		}
+	</script>
+</body>
+</html>
