@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $(".thumbs").find("img").click(function(){
+                let img = $(this).attr("src");
+//                console.log(img);
+//                let start = img.slice(7);
+//                console.log(start);
+                let newImg = img.slice(7,-7);
+//                console.log(end);
+                $(".gallery").find("img").attr("src",`images/${newImg}_500.jpg`);
+                
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div class="gallery">
+        <img src="images/3236001_500.jpg" alt="">
+    </div>
+    <div class="thumbs">
+        <img src="thumbs/3236001_24.jpg" alt="">
+        <img src="thumbs/3236006_24.jpg" alt="">
+        <img src="thumbs/3236007_24.jpg" alt="">
+    </div>
+</body>
+
+</html>
