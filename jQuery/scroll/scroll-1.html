@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href="https://fonts.googleapis.com/css?family=Oswald:300,400,700" rel="stylesheet">
+
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			font-family: "Oswald";
+		}
+		nav {
+			width: 100%;
+			background-color: #222;
+			/*height: 50px;*/
+			position: fixed;
+		}
+		.container {
+			width: 1200px;
+			margin: auto;
+		}
+		.clearfix::after {
+			content:"";
+			clear: both;
+			display: block;
+		}
+		.logo {
+			float: left;
+			height: 50px;
+			line-height: 50px;
+			color: #eee;
+		}
+		.menu {
+			float: right;
+		}
+		.menu li {
+			float: left;
+			list-style: none;
+		}
+		.menu a {
+			display: block;
+			text-decoration: none;
+			height: 50px;
+			line-height: 50px; 
+			color: #eee;
+			margin-left: 15px;
+			margin-right: 15px;
+			font-size: 14px;
+			letter-spacing: 1px;
+		}
+		#about,#service,#product,#contact,#ad {
+			width: 100%;
+			height: 1200px;
+		}
+		#about {background-color: #18314F;}
+		#service {background-color: #E6F9AF;}
+		#product {background-color: #0D0630;}
+		#contact {background-color: #8BBEB2;}
+		#ad {background-color: #666;}
+		.active {
+			color: #f00!important;
+		}
+		#gotop {
+			display: block;
+			width: 40px;
+			height: 40px;
+			background-color: #222;
+			color: #fff;
+			text-align: center;
+			line-height: 40px;
+			position: fixed;
+			right: 15px;
+			bottom: 15px;
+			text-decoration: none;
+			border-radius: 50%;
+		}
+		#gotop::before {
+			content: "";
+			border-left:9px solid transparent;
+			border-right:9px solid transparent;
+			border-top:9px solid transparent;
+			border-bottom:15px solid #fff;
+			display: inline-block;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script>
+		$(function(){
+			$(".menu").find("a").click(function(){
+				// $(this).toggleClass("active");
+				// console.log("success");
+				let target = $(this).data("target");
+				console.log(target);
+				let _offset = $("#"+target).offset().top;
+				console.log(_offset);
+				$("html,body").animate({
+					scrollTop: _offset
+				});
+				return false;
+			});
+			$("#gotop").click(function(){
+				$("html,body").animate({
+					scrollTop: 0
+				})
+				return false;
+			});
+			$("#gotop").hide();
+			$(window).scroll(function(){
+				let h = $(window).scrollTop();
+				console.log(h);
+				if(h>600){
+					$("#gotop").fadeIn();
+				}else{
+					$("#gotop").fadeOut();
+				}
+			});
+		})
+
+	</script>
+</head>
+<body>
+	<nav class="clearfix">
+		<div class="container">
+			<div class="logo">
+				LOGO
+			</div>
+			<div class="menu">
+				<ul>
+					<li><a href="#" data-target="about">ABOUT</a></li>
+					<li><a href="#" data-target="service">SERVICE</a></li>
+					<li><a href="#" data-target="product">PRODUCT</a></li>
+					<li><a href="#" data-target="ad">AD</a></li>
+					<li><a href="#" data-target="contact">CONTACT</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div id="about"></div>
+	<div id="service"></div>
+	<div id="product"></div>
+	<div id="ad"></div>
+	<div id="contact"></div>
+	<a href="#" id="gotop">
+		<!-- TOP -->
+	</a>
+</body>
+</html>
